@@ -1,5 +1,7 @@
 package math_problems;
 
+import java.util.Scanner;
+
 public class Factorial {
 
     /** INSTRUCTIONS
@@ -11,8 +13,28 @@ public class Factorial {
      */
 
     public static void main(String[] args) {
+        String yn;
+        int num;
+        do {
+            Scanner s = new Scanner(System.in);
+            System.out.println(" Please enter the number, which number's Factorial you need, but not more than 25");
+            num = s.nextInt();
 
-
+            System.out.println("Factorial of " +num+" is: " +facto(num)+";");
+            System.out.println("Do you want to continue (Press 'y' for 'yes' and 'n' for no )");
+            yn = s.next();
+        } while (yn.equals("y") || yn.equals("Y"));
+    }
+    public static int facto(int num)
+    {
+        if (num ==1)
+        {
+            return 1;
+        }
+        else
+        {
+            return num*facto(num-1);
+        }
     }
 
 }
