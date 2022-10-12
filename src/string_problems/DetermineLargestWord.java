@@ -1,7 +1,6 @@
 package string_problems;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DetermineLargestWord {
 
@@ -14,16 +13,36 @@ public class DetermineLargestWord {
     public static void main(String[] args) {
         String s = "Human brain is a biological learning machine";
         Map<Integer, String> wordNLength = findTheLargestWord(s);
-
-
+    //String longestWord = Arrays.stream(s.split(" ")).max(Comparator.comparingInt(String::length)).orElse(null).toString();
+    //System.out.println(longestWord +", length-"+ longestWord.length());
     }
 
     public static Map<Integer, String> findTheLargestWord(String wordGiven) {
         Map<Integer, String> map = new HashMap<Integer, String>();
-        String st = "";
+        //String st = "";
+        String longestWord = Arrays.stream(wordGiven.split(" "))
+                .max(Comparator.comparingInt(String::length))
+                .orElse(null).toString();
+        //System.out.println(longestWord +", length-"+ longestWord.length());
+        System.out.println(" Longest word: "+longestWord);
+        System.out.println(" Length: "+longestWord.length());
+        map.put(longestWord.length(), longestWord);
+
+        System.out.println("-----------------------");
+        System.out.println("Key "+" | " + "Values");
+        System.out.println("-----------------------");
+
+
+        Set<Integer> set = map.keySet();
+        for(Integer key: set)
+        {
+            String value = map.get(key);
+            System.out.println(key + "    | "+value);
+        }
 
         // Implement here
 
         return map;
     }
+
 }
