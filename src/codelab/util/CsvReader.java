@@ -21,14 +21,22 @@ public class CsvReader {
 
     public static void main(String[] args) {
 
-        String csvFilePath = System.getProperty("user.dir") + "\\src\\codelab\\data\\roster.csv";
+        String csvFilePath = "JavaMidterm/src/codelab/data/roster.csv" ;
         String row;
         String csvSplitBy = ",";
+        String line = "";
         BufferedReader br;
         List<Student> roster = new ArrayList<>();
-
+       List<Double> strList = new ArrayList<>();
         try {
             br = new BufferedReader(new FileReader(csvFilePath));
+
+
+            //while ((line= br.readLine()) != null)
+            //{
+               // strList.add(line);
+           // }
+            //System.out.println(strList);
             int lineNumber = 0;
             while ((row = br.readLine()) != null) {
                 if (lineNumber == 0) {
@@ -38,7 +46,21 @@ public class CsvReader {
                 String[] rowArray = row.split(csvSplitBy);
                 roster.add(new Student(rowArray[5].replace("\"", ""), rowArray[4].replace("\"",
                         ""), Integer.parseInt(rowArray[10])));
+                strList.add(Double.valueOf(rowArray[10]));
+
             }
+
+
+            double total = 0;
+            for(int i=0; i<strList.size(); i++)
+            {
+                total = total+ strList.get(i);
+            }
+            double avg = total/strList.size();
+            System.out.println();
+            System.out.println("Average Score of the Class is: "+avg);
+            System.out.println("========*******************++++++++++++++++++++++++++===============\n");
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -66,5 +88,7 @@ public class CsvReader {
         } else {
             return "Very low effort. Not a good sign, " + name;
         }
+
     }
+
 }
