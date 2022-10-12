@@ -2,69 +2,163 @@
 
 Why do we need data structure?
 Answer:
+We need Data Structure because data Structure is the way by which we can store the data in efficient way.
+As We can retrieve and access.
 
 What are the various operations that can be performed on different data structures?
 Answer:
+Following operations can be performed on the data structures:
+Traversing.
+Searching.
+Inserting.
+Deleting.
+Sorting.
+Merging.
 
 When would we use data structures in the real world?
 Answer:
+A data structure is a particular way of organizing data in a computer so that it can be used effectively.
 
 What is an Array?
 Answer:
+Java array is an object which contains elements of a similar data type. Additionally, The elements of an
+array are stored in a contiguous memory location. It is a data structure where we store similar elements.
+We can store only a fixed set of elements in a Java array.
 
 What is the difference between Array and ArrayList?
 Answer:
+In Java, array and ArrayList are the well-known data structures. An array is a basic functionality
+provided by Java, whereas ArrayList is a class of Java Collections framework. It belongs to java.util package.
 
 What is a LinkedList?
 Answer:
+A linked list is a linear data structure that stores a collection of data elements dynamically.
 
 How is an Array different from LinkedList?
 Answer:
+The major difference between Array and Linked list regards to their structure. Arrays are index based data
+structure where each element associated with an index. On the other hand, Linked list relies on references
+where each node consists of the data and the references to the previous and next element.
 
 What is a Queue?
 Answer:
+The Java Queue interface, java.util.Queue represents a data structure designed to have elements inserted
+at the end of the queue, and elements removed from the beginning of the queue.
 
 What is a Stack (referring to data structures)?
 Answer:
+A stack is an example of a linear data structure. Linear data structures are collections of components
+arranged in a straight line. When we add or remove components of linear data structures,
+they grow and shrink. If we restrict the growth of a linear data structure so that new components can
+only be added or removed only at one end, we have a stack.
 
 What is FIFO and LIFO?
 Answer:
+FIFO stands for first in first out and LIFO stands for Last in first out.
 
 Explain Big O Notation?
 Answer:
+Big O Notation in Data Structure is used to express algorithmic complexity using algebraic terms.
+It describes the upper bound of an algorithm's runtime and calculates the time and amount of memory
+needed to execute the algorithm for an input value.
 
 What is the best case to search an element from an array?
 Answer:
+Binary search is the best case to search an element.
 
 What is the worst case to search an element from an array?
 Answer:
+Linear search is the worst case.
 
 Describe what a tree data structure is?
 Answer:
+A tree is non-linear and a hierarchical data structure consisting of a collection of nodes such that
+each node of the tree stores a value and a list of references to other nodes
 
 Describe what a graph data structure is?
 Answer:
+Mathematical graphs can be represented in data structure. We can represent a graph using an array of
+vertices and a two-dimensional array of edges.
+A graph is a pictorial representation of a set of objects where some pairs of objects are connected by
+links. The interconnected objects are represented by points termed as vertices, and the links that
+connect the vertices are called edges.
 
 What is the difference between the HashTable and HashMap?
 Answer:
+HashMap and HashTable in java are two important data structures in the Collection Framework which have
+some common things between them. Both implement Map interface. Both store the data in the form of
+key-value pairs. Both use Hashing technique to store the elements. But, there also exist significant
+differences between them. One important difference being the thread safety. HashMap is not thread safe
+where as HashTable is thread safe.
 
 How do HashMaps work in Java? How do they store values, and when are they useful?
 Answer:
+HashMap in Java works on hashing principles. It is a data structure that allows us to store object and
+retrieve it in constant time O(1) provided we know the key. In hashing, hash functions are used to
+link keys and values in HashMap. Objects are stored by the calling put(key, value) method of HashMap and
+retrieved by calling the get(key) method. When we call the put method, the hashcode() method of
+the key object is called so that the hash function of the map can find a bucket location to store the
+value object, which is actually an index of the internal array, known as the table.
 
 What is ArrayIndexOutOfBoundsException in java? When does it occur?
 Answer:
+The ArrayIndexOutOfBoundsException occurs whenever we are trying to access any item of an array at an
+index which is not present in the array. In other words, the index may be negative or exceed the size
+of an array.
+The ArrayIndexOutOfBoundsException is a subclass of IndexOutOfBoundsException, and it implements the Serializable interface.
 
 What are the different ways of copying an array into another array?
 Answer:
+We can copy Array in the followin methods:
+Iterating each element of the given original array and copy one element at a time.
+Using clone() method.
+Using arraycopy() method.
+Using copyOf() method of Arrays class.
+Using copyOfRange() method of Arrays class.
 
 What is DFS and BFS?
 Answer:
+DFS stands for Depth First Search. In DFS traversal, the stack data structure is used, which works on the
+LIFO (Last In First Out) principle. In DFS, traversing can be started from any node, or we can say
+that any node can be considered as a root node until the root node is not mentioned in the problem.
+BFS stands for Breadth First Search. It is also known as level order traversal. The Queue data structure
+is used for the Breadth First Search traversal. When we use the BFS algorithm for the traversal in a
+graph, we can consider any node as a root node.
+The main difference is that BFS is a traversal approach in which we first walk through all nodes on the same
+level before moving on to the next level. DFS is also a traversal approach in which the traverse begins
+at the root node and proceeds through the nodes as far as possible until we reach the node with no
+unvisited nearby nodes.
 
 What is Recursion?
 Answer:
+Recursion is the technique of making a function call itself. This technique provides a way to break
+complicated problems down into simple problems which are easier to solve.
 
 What are linear and non-linear data Structures?
 Answer:
+In a linear data structure, data elements are arranged in a linear order where each and every
+element is attached to its previous and next adjacent.
+In a non-linear data structure, data elements are attached in hierarchically manner.
 
 Outline different sorting algorithms and their time complexities:
 
+Answer:
+Time Complexity: It is defined as the times in number instruction, in particular,
+is expected to execute rather than the total time is taken. Since time is a dependent phenomenon,
+time complexity may vary on some external factors like processor speed, the compiler used, etc.
+In computer science, the time complexity of an algorithm is expressed in big O notation. Let's discuss
+some time complexities.
+
+O(1): This denotes the constant time. 0(1) usually means that an algorithm will have constant time
+regardless of the input size. Hash Maps are perfect examples of constant time.
+
+O(log n): This denotes logarithmic time. O(log n) means to decrease with each instance for the operations.
+ Binary search trees are the best examples of logarithmic time.
+
+O(n): This denotes linear time. O(n) means that the performance is directly proportional to the input size.
+In simple terms, the number of inputs and the time taken to execute those inputs will be proportional
+or the same. Linear search in arrays is the best example of linear time complexity.
+
+O(n2): This denotes quadratic time. O(n2) means that the performance is directly proportional to the
+ square of the input taken. In simple, the time taken for execution will take square times the input size.
+ Nested loops are perfect examples of quadratic time complexity.
