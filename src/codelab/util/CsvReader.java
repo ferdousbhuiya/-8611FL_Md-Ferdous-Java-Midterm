@@ -11,8 +11,9 @@ import java.util.List;
 
 public class CsvReader {
 
-    /** INSTRUCTIONS
-     *
+    /**
+     * INSTRUCTIONS
+     * <p>
      * You will find a Comma-Separated Value (CSV) file within this package. It contains CodeLab status for each student
      * who registered for the CodeLab course.
      * Based on number of solution you solved in CodeLab, a message will be generated for you.
@@ -21,22 +22,14 @@ public class CsvReader {
 
     public static void main(String[] args) {
 
-        String csvFilePath = "JavaMidterm/src/codelab/data/roster.csv" ;
+        String csvFilePath = "JavaMidterm/src/codelab/data/roster.csv";
         String row;
         String csvSplitBy = ",";
-        String line = "";
         BufferedReader br;
         List<Student> roster = new ArrayList<>();
-       List<Double> strList = new ArrayList<>();
+        List<Double> strList = new ArrayList<>();
         try {
             br = new BufferedReader(new FileReader(csvFilePath));
-
-
-            //while ((line= br.readLine()) != null)
-            //{
-               // strList.add(line);
-           // }
-            //System.out.println(strList);
             int lineNumber = 0;
             while ((row = br.readLine()) != null) {
                 if (lineNumber == 0) {
@@ -47,31 +40,23 @@ public class CsvReader {
                 roster.add(new Student(rowArray[5].replace("\"", ""), rowArray[4].replace("\"",
                         ""), Integer.parseInt(rowArray[10])));
                 strList.add(Double.valueOf(rowArray[10]));
-
             }
-
-
             double total = 0;
-            for(int i=0; i<strList.size(); i++)
-            {
-                total = total+ strList.get(i);
+            for (int i = 0; i < strList.size(); i++) {
+                total = total + strList.get(i);
             }
-            double avg = total/strList.size();
+            double avg = total / strList.size();
             System.out.println();
-            System.out.println("Average Score of the Class is: "+avg);
+            System.out.println("Average Score of the Class is: " + avg);
             System.out.println("========*******************++++++++++++++++++++++++++===============\n");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         Collections.sort(roster);
-
         for (Student student : roster) {
             System.out.println(convertNumberOfProblemsSolved(student));
         }
     }
-
     private static String convertNumberOfProblemsSolved(Student student) {
         String name = student.getFirstName();
 
