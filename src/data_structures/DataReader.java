@@ -2,6 +2,8 @@ package data_structures;
 
 import java.io.*;
 import java.sql.*;
+import java.util.LinkedList;
+import java.util.Scanner;
 
 
 public class DataReader {
@@ -30,10 +32,10 @@ public class DataReader {
 
 
     public static void main(String[] args) throws SQLException, IOException {
+        String textFilePath = "JavaMidterm/src/data_structures/data/self-driving-car";
         DataReader dataReader = new DataReader();
         dataReader.storeFile();
-        String textFilePath = "JavaMidterm/src/data_structures/data/self-driving-car";
-
+        System.out.println(dataReader);
         try {
             BufferedReader br = new BufferedReader(new FileReader(textFilePath));
             String line;
@@ -43,27 +45,24 @@ public class DataReader {
         } catch (
                 IOException e) {
             e.printStackTrace();
-
-
         }
     }
+        private void storeFile () {
+            Connection connection = null;
+            PreparedStatement preparedStatement = null;
+            FileReader fileReader = null;
+            try {
+                Class.forName(JDBC_DRIVER);
+                connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+                String s1 = "INSERT INTO TextFile (Serial, Text)VALUES(?,?)";
+                preparedStatement = connection.prepareStatement(s1);
+                File file = new File("JavaMidterm/src/data_structures/data/self-driving-car");
+                fileReader = new FileReader(file);
 
-    private void storeFile() {
-        Connection connection = null;
-        PreparedStatement preparedStatement = null;
-        FileReader fileReader = null;
-        try {
-            Class.forName(JDBC_DRIVER);
-            connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-            String s1 = "INSERT INTO TextFile (Serial, Text)VALUES(?,?)";
-            preparedStatement = connection.prepareStatement(s1);
-            File file = new File("JavaMidterm/src/data_structures/data/self-driving-car");
-            fileReader = new FileReader(file);
-
-            preparedStatement.setInt(1, 7);
-            preparedStatement.setCharacterStream(2, fileReader);
-            int numberOfRowsInserted = preparedStatement.executeUpdate();
-            System.out.println("Number of Rows Inserted : " + numberOfRowsInserted);
+                preparedStatement.setInt(1, 1034);
+                preparedStatement.setCharacterStream(2, fileReader);
+                int numberOfRowsInserted = preparedStatement.executeUpdate();
+                System.out.println("Number of Rows Inserted : " + numberOfRowsInserted);
 
         } catch (SQLException | ClassNotFoundException | FileNotFoundException se) {
             se.printStackTrace();

@@ -1,9 +1,6 @@
 package string_problems;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+
 
 public class DuplicateWord {
 
@@ -17,32 +14,21 @@ public class DuplicateWord {
         String st = "Java is a programming Language. Java is also an Island of Indonesia. Java is widely used language";
 
         // Implement here
-st =st.toLowerCase();
+        st = st.toLowerCase();
         String[] word = st.split("[ .]+");
         int count;
-        for(int i=0; i<word.length; i++)
-        {
-            count=1;
-            for(int j=i+1; j<word.length; j++)
-            {
-                if( word[i].equals(word[j]))
-                {
-                    count = count+1;
-                    word[j]="0";
-
+        for (int i = 0; i < word.length; i++) {
+            count = 1;
+            for (int j = i + 1; j < word.length; j++) {
+                if (word[i].equals(word[j])) {
+                    count = count + 1;
+                    word[j] = "0";
                 }
-
             }
-
-            if(word[i] !="0"&& count>1)
-            {
-                System.out.println(word[i]+" "+count);
-
+            if (word[i] != "0" && count > 1) {
+                System.out.println(word[i] + " " + count);
             }
-
         }
-
-        System.out.println("Total words: " +word.length);
+        System.out.println("Total words: " + word.length);
     }
-
 }
