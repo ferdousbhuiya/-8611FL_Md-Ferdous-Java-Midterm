@@ -140,7 +140,12 @@ public class CnnAPI {
             this.urlToImage = urlToImage;
             this.publishedAt = publishedAt;
             this.content = content;
+
+
+
         }
+
+
     }
 
 }
