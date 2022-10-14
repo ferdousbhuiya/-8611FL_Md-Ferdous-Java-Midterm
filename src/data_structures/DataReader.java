@@ -35,7 +35,7 @@ public class DataReader {
         String textFilePath = "JavaMidterm/src/data_structures/data/self-driving-car";
         DataReader dataReader = new DataReader();
         dataReader.storeFile();
-        System.out.println(dataReader);
+
         try {
             BufferedReader br = new BufferedReader(new FileReader(textFilePath));
             String line;
