@@ -22,6 +22,7 @@ public class SharedStepsDatabase {
     static String systemPath = System.getProperty("user.dir");
     static String propPath = File.separator + "src" + File.separator + "secret.properties";
     private static final File file = new File(systemPath + propPath);
+    //String file = "JavaMidterm/src/secret.properties";
 
     public SharedStepsDatabase() {
         prop = loadProperties();
@@ -53,6 +54,7 @@ public class SharedStepsDatabase {
         prop = new Properties();
 
         try (InputStream ism = new FileInputStream(file)) {
+        //try (InputStream ism = new FileInputStream(file)) {
             prop.load(ism);
         } catch (FileNotFoundException fileNotFoundException) {
             System.out.println("FILE IS NOT AVAILABLE AT: " + systemPath + propPath);

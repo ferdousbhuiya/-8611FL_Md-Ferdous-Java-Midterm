@@ -2,8 +2,6 @@ package data_structures;
 
 import java.io.*;
 import java.sql.*;
-import java.util.LinkedList;
-import java.util.Scanner;
 
 
 public class DataReader {
@@ -30,6 +28,16 @@ public class DataReader {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Silme123@";
 
+   // private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    //private static final String DB_URL = "jdbc:mysql://localhost:3306/sql_text";
+   // private static final String USERNAME = "root";
+    //private static final String PASSWORD = "Silme123@";
+
+
+    //MYSQLJDBC.driver=com.mysql.cj.jdbc.Driver
+   // MYSQLJDBC.host=jdbc:mysql://localhost/java_midterm?serverTimezone=UTC&useSSL=false
+   // MYSQLJDBC.userName=root
+   // MYSQLJDBC.password=Test210!
 
     public static void main(String[] args) throws SQLException, IOException {
         String textFilePath = "JavaMidterm/src/data_structures/data/self-driving-car";
@@ -59,7 +67,7 @@ public class DataReader {
                 File file = new File("JavaMidterm/src/data_structures/data/self-driving-car");
                 fileReader = new FileReader(file);
 
-                preparedStatement.setInt(1, 1034);
+                preparedStatement.setInt(1, 49);
                 preparedStatement.setCharacterStream(2, fileReader);
                 int numberOfRowsInserted = preparedStatement.executeUpdate();
                 System.out.println("Number of Rows Inserted : " + numberOfRowsInserted);

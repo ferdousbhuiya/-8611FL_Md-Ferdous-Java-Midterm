@@ -1,12 +1,5 @@
 package databases;
 
-import java.sql.ResultSet;
-import java.text.Format;
-import java.util.ArrayList;
-import java.util.Formatter;
-import java.util.HashMap;
-import java.util.List;
-
 public class UnitTestConnectDB {
 
     /**
@@ -18,10 +11,10 @@ public class UnitTestConnectDB {
         SharedStepsDatabase ssdb = new SharedStepsDatabase();
 
         // region ExecuteQueryReadOne
-//        String query = "SELECT 1 FROM DUAL";
-//        String result = ssdb.executeQueryReadOne(query);
-//
-//        System.out.println(result);
+       String query = "SELECT 1 FROM DUAL";
+        String result = ssdb.executeQueryReadOne(query);
+
+       System.out.println(result);
 //        // endregion
 
         // region executeQueryReadAllSingleColumn
@@ -53,8 +46,8 @@ public class UnitTestConnectDB {
         // endregion
 
         // region InsertString
-//        ssdb.insertString("test_insert_string", "test_string", "Sami loves Aamna");
-//        System.out.println(ssdb.executeQueryReadAllSingleColumn("SELECT * FROM TEST_INSERT_STRING", 2).get(0));
+       ssdb.insertString("test_insert_string", "test_string", "Sami loves Aamna");
+        System.out.println(ssdb.executeQueryReadAllSingleColumn("SELECT * FROM TEST_INSERT_STRING", 2).get(0));
 //
         // endregion
 
