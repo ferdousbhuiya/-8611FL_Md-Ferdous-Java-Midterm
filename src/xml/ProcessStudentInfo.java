@@ -1,19 +1,11 @@
 package xml;
 
-import java.io.File;
+
 import java.io.IOException;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.swing.text.Document;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.sql.SQLException;
+import java.util.*;
 import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import databases.SharedStepsDatabase;
 import org.xml.sax.SAXException;
 
 
@@ -57,7 +49,7 @@ public class ProcessStudentInfo {
      *
      **/
 
-    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException {
+    public static void main(String[] args) throws ParserConfigurationException, SAXException, IOException, SQLException {
 
         // To get you started, your system's abs path has been initialized and some add'l variables have been declared
         String systemPath = System.getProperty("user.dir");
@@ -75,10 +67,27 @@ public class ProcessStudentInfo {
 
         // Implement the rest below, as per the instructions
 
-
         XmlReader xmlReader = new XmlReader();
+        System.out.println("qtp Student list:");
         xmlReader.parseData(tag,qtpDocPath );
+        System.out.println("\n");
+        System.out.println("Selenium Student:");
+        List<Student> listOfselnmStd = new ArrayList<>();
+        for (Student x : xmlReader.parseData(tag, seleniumDocPath))
+        {
+            listOfselnmStd.add(x);
+        }
 
+        Map<Object, Object> StudentSlnm = new HashMap<>();
+        for (Student s : listOfselnmStd) {
+            StudentSlnm.put(s.lastName, s.score);
+        }
+        System.out.println("\n");
+        SharedStepsDatabase sharedStepsDatabase = new SharedStepsDatabase();
+
+        sharedStepsDatabase.insertMap("StudentOfSelenium", StudentSlnm);
+        String query = "SELECT * FROM StudentOfSelenium";
+        //System.out.println(sharedStepsDatabase.executeQueryReadAll(query));
 
     }
 }

@@ -69,8 +69,25 @@ public class XmlReader {
                 list.add(student);
             }
         }
-        System.out.println(list);
+        doc.getDocumentElement().normalize();
+        System.out.println(doc.getDocumentElement().getNodeName());
+        NodeList nList = doc.getElementsByTagName("student");
+        System.out.println();
+        for (int temp = 0; temp < nList.getLength(); temp++) {
+            Node nNode = nList.item(temp);
+            System.out.println();
+            if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element) nNode;
+                System.out.println("Student ID : " + eElement.getAttribute("id"));
+                System.out.println("First Name : " + eElement.getElementsByTagName("firstName").item(0).getTextContent());
+                System.out.println("Last Name : " + eElement.getElementsByTagName("lastName").item(0).getTextContent());
+                System.out.println("Score : " + convertIntToChar( eElement.getElementsByTagName("score").item(0).getTextContent())) ;
+            }
+        }
         return list;
+
+
+
 
     }
 
@@ -78,16 +95,13 @@ public class XmlReader {
     public char convertIntToChar(String score) {
         char grade = ' ';
         int scr = Integer.parseInt(score);
-        if(scr<= 100 && scr>=90)
-        {
-            grade='A';
+        if (scr <= 100 && scr >= 90) {
+            grade = 'A';
         }
-        if(scr<=89 && scr>=80)
-        {
+        if (scr <= 89 && scr >= 80) {
             grade = 'B';
         }
-        if(scr<=79 && scr>=50)
-        {
+        if (scr <= 79 && scr >= 50) {
             grade = 'C';
         }
 
