@@ -1,12 +1,19 @@
 package xml;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 
@@ -56,8 +63,8 @@ public class ProcessStudentInfo {
         String systemPath = System.getProperty("user.dir");
         String seleniumDocRelativePath;
         String qtpDocRelativePath;
-        String seleniumDocPath;
-        String qtpDocPath;
+        String seleniumDocPath= "src/xml/data/selenium.xml";
+        String qtpDocPath = "src/xml/data/qtp.xml";
         String tag = "id";
 
         /*
@@ -67,6 +74,11 @@ public class ProcessStudentInfo {
         Map<String, List<Student>> studentMap = new LinkedHashMap<String, List<Student>>();
 
         // Implement the rest below, as per the instructions
+
+
+        XmlReader xmlReader = new XmlReader();
+        xmlReader.parseData(tag,qtpDocPath );
+
 
     }
 }

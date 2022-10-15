@@ -69,12 +69,27 @@ public class XmlReader {
                 list.add(student);
             }
         }
+        System.out.println(list);
         return list;
+
     }
 
     // You must implement this method
     public char convertIntToChar(String score) {
         char grade = ' ';
+        int scr = Integer.parseInt(score);
+        if(scr<= 100 && scr>=90)
+        {
+            grade='A';
+        }
+        if(scr<=89 && scr>=80)
+        {
+            grade = 'B';
+        }
+        if(scr<=79 && scr>=50)
+        {
+            grade = 'C';
+        }
 
         return grade;
     }

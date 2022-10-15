@@ -18,7 +18,7 @@ public class UseMap {
 
 
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/sql_text";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/java_midterm";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Silme123@";
     private static Object batchUpdateException;
@@ -63,7 +63,8 @@ public class UseMap {
 
 
     String tableName = "`test_hash_map`";
-        SharedStepsDatabase sql = new SharedStepsDatabase();
+        SharedStepsDatabase sharedStepsDatabase = new SharedStepsDatabase();
+
 
         // IMPLEMENT HERE
 
