@@ -18,7 +18,7 @@ public class UseQueue {
      */
 
 
-    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException {
+    public static void main(String[] args) throws Exception {
 
 
 
@@ -83,6 +83,9 @@ public class UseQueue {
             value = (String) iterator.next();
         System.out.println(value);
 
+        SharedStepsDatabase sharedStepsDatabase = new SharedStepsDatabase();
+        sharedStepsDatabase.insertString("test_insert_string", "test_string", "Hello! How are you? I am fine");
+        System.out.println(sharedStepsDatabase.executeQueryReadAllSingleColumn("SELECT * FROM TEST_INSERT_STRING", 2).get(0));
 
 
 
