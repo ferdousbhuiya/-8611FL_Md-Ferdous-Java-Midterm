@@ -7,12 +7,13 @@ import java.util.*;
 
 public class UseMap {
 
-    /** INSTRUCTIONS
-     *
+    /**
+     * INSTRUCTIONS
+     * <p>
      * Implement code to demonstrate how to interact with a database connection, using a Map
      * You must insert the map into a table, and then you must submit & execute a query to retrieve
      * all the submitted data (retrieval does not need to be stored as a map - you can use any data structure)
-     *
+     * <p>
      * Use For-Each loop and While-loop with Iterator to retrieve data.
      */
 
@@ -30,7 +31,7 @@ public class UseMap {
         map.put(4567, "azar");
         map.put(7898, "rahim");
 
-        String INSERT_USERS_SQL = "INSERT INTO test_hash_map"+" (Serial, value) VALUES " + " (?, ?);";
+        //String INSERT_USERS_SQL = "INSERT INTO test_hash_map" + " (Serial, value) VALUES " + " (?, ?);";
 
         // Retrieving "Keys" & "Values" using an Iterator
         Iterator<Object> mapIter = map.keySet().iterator();
@@ -39,40 +40,25 @@ public class UseMap {
             key = mapIter.next();
             System.out.println("KEY: " + key);
             System.out.println("VALUE: " + map.get(key));
+            Object key1;
 
-   try (Connection connection = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD) ;
-        PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL))
-        {
-            connection.setAutoCommit(false);
-
-            int[] updateCounts= preparedStatement.executeBatch();
-        System.out.println(Arrays.toString(updateCounts));
-        connection.commit();
-        connection.setAutoCommit(true);
-   } catch (BatchUpdateException batchUpdateException) {
-       printBatchUpdateException(batchUpdateException);
-   }catch (SQLException e){
-            printSQLException(e)
-;   }
-
+            for (Iterator i = map.keySet().iterator(); i.hasNext(); ) {
+                key1 = i.next();
+                System.out.println("KEY: " + key1);
+                System.out.println("Value: " + map.get(key1));
+            }
         }
 
-    //void printBatchUpdateException ;(BatchUpdateException Object batchUpdateException;
-     //   Object batchUpdateException1 = batchUpdateException;) {
-    }
-
-
-    String tableName = "`test_hash_map`";
+        String tableName = "test_hash_map";
         SharedStepsDatabase sharedStepsDatabase = new SharedStepsDatabase();
-
-
         // IMPLEMENT HERE
+        sharedStepsDatabase.insertMap(tableName, map);
+        String sqlquery = "Select * From test_hash_map";
+        System.out.println(sharedStepsDatabase.executeQueryReadAll(sqlquery));
+        System.out.println(sharedStepsDatabase.executeQueryReadAllSingleColumn(sqlquery, 2));
 
-    //}
 
-    private static void printSQLException(SQLException e) {
-    }
 
-    private static void printBatchUpdateException(BatchUpdateException batchUpdateException) {
     }
 }
+
